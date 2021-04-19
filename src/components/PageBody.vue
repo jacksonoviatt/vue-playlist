@@ -2,8 +2,11 @@
   <div>
     <h1>Music Library</h1>
     <section>
+      
       <article>
         <h3>Your playlist</h3>
+        <!-- run a for loop through the musicLibrary Array -->
+        <!-- bind songObject from the songlist to song from the for loop -->
         <play-list
          v-for="song in musicLibrary"
           :key="song.id"
@@ -13,17 +16,17 @@
       
       <article>
         <h3>Choose some songs</h3>
+        <!-- run a for loop through the musicLibrary Array -->
+       <!-- on the custom eventlistener songHasBeenClicked, run the function handle click status-->
+        <!-- bind songObject from the songlist component to song from the for loop -->
         <song-list
           v-for="song in musicLibrary"
-          :key="song.id"
-          
-          @songHasBeenClicked="handleClickStatus"
-           
-          :songObject="song"
-         
-          
+          :key="song.id"       
+          @songHasBeenClicked="handleClickStatus"  
+          :songObject="song"          
         ></song-list>
       </article>
+
     </section>
   </div>
 </template>
@@ -38,10 +41,8 @@ export default {
     PlayList,
   },
 methods: {
+  // when the custom event runs, it will change the status of isSongClicked to true
       handleClickStatus(data) {
-        document.body.style.color = "red";
-         
-          // console.log(this.songObject);
           data.isSongClicked = !data.isSongClicked;
           console.log(data.title);
           console.log(data.isSongClicked);
@@ -51,7 +52,8 @@ methods: {
 
   data() {
     return {
-      // songClicked: false,
+//  array of songs
+// is clicked is always default set as false
       musicLibrary: [
         {
           id: 1,
