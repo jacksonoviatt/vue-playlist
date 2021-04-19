@@ -3,10 +3,16 @@
     <h1>Music Library</h1>
     <section>
       <article>
-        <play-list></play-list>
+        <h3>Your playlist</h3>
+        <play-list
+         v-for="song in musicLibrary"
+          :key="song.id"
+          :songObject="song"
+      ></play-list>
       </article>
-      <!-- <song-list></song-list> -->
+      
       <article>
+        <h3>Choose some songs</h3>
         <song-list
           v-for="song in musicLibrary"
           :key="song.id"
@@ -45,7 +51,7 @@ methods: {
 
   data() {
     return {
-      songClicked: false,
+      // songClicked: false,
       musicLibrary: [
         {
           id: 1,
@@ -104,7 +110,7 @@ methods: {
 <style scoped>
 section {
   display: grid;
-  place-items: center;
+  justify-items: center;
   grid-template-columns: 1fr 1fr;
 }
 </style>

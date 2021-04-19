@@ -1,8 +1,7 @@
 <template>
-  <div @click="changeLists()" :id="listId" v-if="songObject.isSongClicked">
+  <div @click="changeLists()" :id="listId" v-if="!songObject.isSongClicked">
       <h3>{{songObject.title}}</h3>
       <p>by {{ songObject.artist}}</p> 
-      <p>{{listId}}</p>
   </div>
 </template>
 
